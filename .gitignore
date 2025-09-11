@@ -1,0 +1,12 @@
+# venv
+.venv/
+# secrets & local config
+.env
+# sqlite & caches
+storage/*.db
+*.sqlite
+__pycache__/
+*.pyc
+# data you don't want public
+data/portfolio.csv
+data/company_tickers.json
