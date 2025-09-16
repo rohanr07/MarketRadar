@@ -1,0 +1,85 @@
+app:
+  timezone: "Europe/London"
+  digest:
+    enabled: true
+    time: "08:00"
+  poll_intervals:
+    edgar_sec_seconds: 60
+    nsm_uk_seconds: 90
+    rss_generic_seconds: 90
+
+llm:
+  model: "llama3.1:8b"
+  max_tokens: 512
+  temperature: 0.2
+
+notifiers:
+  discord:
+    enabled: true
+    priority_webhook_env: "DISCORD_WEBHOOK_PRIORITY"
+    watchlist_webhook_env: "DISCORD_WEBHOOK_WATCHLIST"
+
+routing:
+  priority_forms:
+    - "8-K"
+    - "SC 13D"
+    - "SC 13G"
+    - "425"
+    - "424B"
+    - "S-1"
+    - "S-3"
+    - "F-1"
+    - "F-3"
+    - "Form 4 (purchase)"
+  priority_keywords:
+    - "buyback"
+    - "bankruptcy"
+    - "going concern"
+    - "guidance"
+    - "resignation"
+    - "sanction"
+    - "ceasefire"
+    - "strike"
+    - "halt"
+
+watchlist:
+  tickers:
+    - AAPL
+    - MSFT
+    - TSLA
+    - NVDA
+    - NFLX
+    - META
+    - GOOGL
+    - HSBC
+    - BYD
+    - COST
+    - SBUX
+    - SOFI
+    - VUSA
+
+rss:
+  feeds:
+    - name: "ECB Press"
+      url: "https://www.ecb.europa.eu/press/pr/date/2024/html/index.en.rss"
+      region: "EU"
+    - name: "Federal Reserve"
+      url: "https://www.federalreserve.gov/feeds/press_all.xml"
+      region: "US"
+    - name: "Bank of England"
+      url: "https://www.bankofengland.co.uk/boeapps/rss/feeds.aspx?FeedCategory=News"
+      region: "UK"
+    - name: "US Treasury/OFAC Sanctions"
+      url: "https://home.treasury.gov/news/press-releases/rss"
+      region: "US"
+  company_feeds: []
+
+hkex:
+  feeds:
+    - name: "HKEX Listed Company Announcements"
+      url: "https://www.hkexnews.hk/listedco/listconews/advancedsearch/rss_latest_realtime_e.xml"
+
+jpx:
+  feeds:
+    - name: "JPX Trading Halts (example)"
+      url: "https://www.jpx.co.jp/english/news/market-alerts/index.rss"
